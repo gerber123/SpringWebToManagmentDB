@@ -1,0 +1,6 @@
+#
+#Tue Sep 25 17:08:46 CEST 2018
+com.gerber.springdemo.dao.CustomerDAOImpl=org.springframework.stereotype.Component
+com.gerber.springdemo.controller.CustomerController=org.springframework.stereotype.Component
+com.gerber.springdemo.entity.Customer=javax.persistence.Entity,javax.persistence.Table
+com.gerber.springdemo.service.CustomerServiceImpl=org.springframework.stereotype.Component

@@ -1,0 +1,6 @@
+#
+#Wed Sep 26 15:31:54 CEST 2018
+com.gerber.springdemo.service.PlayerServiceImpl=org.springframework.stereotype.Component
+com.gerber.springdemo.entity.PlayerForTheExp=javax.persistence.Entity,javax.persistence.Table
+com.gerber.springdemo.controller.PlayerController=org.springframework.stereotype.Component
+com.gerber.springdemo.dao.PlayerDAOImpl=org.springframework.stereotype.Component
