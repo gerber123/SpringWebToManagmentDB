@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.Calendar;
@@ -14,14 +15,25 @@ import java.util.List;
 public class PlayerDAOImpl implements PlayerDAO
 {
     @Autowired
-    SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
+    @Override
     public List<PlayerForTheExp> getAllPlayers() {
         Session session =sessionFactory.getCurrentSession();
-        List<PlayerForTheExp> listOfPlayers = session.createQuery("from PlayerForTheExp",PlayerForTheExp.class).getResultList();
-        return listOfPlayers;
-    }
+//        List<PlayerForTheExp> listOfPlayers = session.createQuery("from PlayerForTheExp",PlayerForTheExp.class).getResultList();
+//        return listOfPlayers;
+        // get the current hibernate session
 
+        // create a query  ... sort by last name
+        Query<PlayerForTheExp> theQuery = session.createQuery("from PlayerForTheExp order by lastName", PlayerForTheExp.class);
+
+        // execute query and get result list
+        List<PlayerForTheExp> playerForTheExps = theQuery.getResultList();
+
+        // return the results
+        return playerForTheExps;
+    }
+    @Override
     public void savePlayer(PlayerForTheExp playerForTheExp)
     {
         Session session =sessionFactory.getCurrentSession();
@@ -33,19 +45,19 @@ public class PlayerDAOImpl implements PlayerDAO
         session.saveOrUpdate(playerForTheExp);
 
     }
-
+    @Override
     public PlayerForTheExp getPlayer(int theId) {
         Session session =sessionFactory.getCurrentSession();
         PlayerForTheExp player=session.get(PlayerForTheExp.class,theId);
         return player;
     }
-
+    @Override
     public void deletePlayer(int theId) {
         Session session=sessionFactory.getCurrentSession();
         PlayerForTheExp player=session.get(PlayerForTheExp.class,theId);
         session.delete(player);
     }
-
+    @Override
     public List<PlayerForTheExp> findPlayers(String nameOfPlayer) {
         Session session=sessionFactory.getCurrentSession();
         Query q=null;

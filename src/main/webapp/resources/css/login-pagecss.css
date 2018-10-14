@@ -1,0 +1,124 @@
+body{
+    margin:0;
+    padding:0;
+    background-image:url("../images/bgimg.jpg");
+    background-size:cover;
+    background-position:center;
+    font-family:sans-serif;
+}
+.error
+{
+    color: yellow;
+    background: darkred;
+    border: 3px solid grey;
+    padding: 4px;
+    border-radius: 13px;
+    display: inline-block;
+    font-size: 12px;
+}
+.box{
+    border:  5px solid grey;
+    border-radius:15px;
+    width: 320px;
+    height: fit-content;
+    background: #A62A2A;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 55px 30px 10px  40px;
+}
+.avatar
+{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    position: absolute;
+    top:-50px;
+    left:calc(50% - 50px);
+
+}
+h1{
+    margin:0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 26px;
+    color:#D9D919;
+}
+.box p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+.box input
+{
+    width: 100%;
+    margin-bottom: 10%;
+
+}
+.box input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size:16px;
+}
+.box input[type="submit"]
+{
+    border:none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #ffff;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.box input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #ffc107;
+    color:#000;
+
+}
+select {
+    outline: 0;
+    box-shadow: none;
+    border-radius: 15px;
+    background: #fffcf3;
+    align-content: center;
+    /*display: block;*/
+    /*margin: 0 auto;*/
+    /*text-align:center;*/
+    margin-bottom: 15px;
+}
+.box a
+{
+    text-decoration: none;
+    font-size: 12px;
+    line-height:20px;
+    color: darkgrey;
+}
+.box a:hover
+{
+    color: #ffc107;
+}
+.errorMsg
+{
+    color: #b27400;
+    text-size:17px;
+    text-align: center;
+    margin-bottom:10px;
+
+}
+.errorImg
+{
+    width:50px;
+    height:50px;
+    left:calc(50% - 50px);
+}

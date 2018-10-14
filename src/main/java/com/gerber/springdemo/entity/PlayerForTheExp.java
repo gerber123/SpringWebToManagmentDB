@@ -3,6 +3,7 @@ package com.gerber.springdemo.entity;
 
 
 
+import com.gerber.springdemo.Validation.ValidEmail;
 import com.gerber.springdemo.Validation.VipCode;
 import org.hibernate.validator.constraints.Email;
 
@@ -33,9 +34,7 @@ public class PlayerForTheExp
     private String lastName;
 
 
-    @NotNull(message="is Required!")
-    @Size(min=1,message ="is Required!")
-    @Email
+    @ValidEmail
     @Column(name="email")
     private String email;
 
@@ -45,6 +44,7 @@ public class PlayerForTheExp
     @Column(name="joinDate")
     private Date date;
 
+
     public PlayerForTheExp() {
     }
 
@@ -53,6 +53,7 @@ public class PlayerForTheExp
         this.lastName = lastName;
         this.email = email;
     }
+
 
     public int getId() {
         return id;

@@ -21,8 +21,8 @@ public class PlayerController
     @GetMapping("/list")
     public String playerList(Model model)
     {
-        List<PlayerForTheExp> playerfortheexp= playerService.getAllPlayers();
-        model.addAttribute("players",playerfortheexp);
+        List<PlayerForTheExp> thePlayers= playerService.getAllPlayers();
+        model.addAttribute("players",thePlayers);
         return "player-list";
     }
     @GetMapping("/showFormForRegister")
@@ -33,15 +33,6 @@ public class PlayerController
 
         return "player-form";
     }
-    @GetMapping("/showFormForRegisterVIP")
-    public String showFormForRegisterVIP(Model model)
-    {
-        PlayerForTheExp player = new PlayerForTheExp();
-        model.addAttribute("player",player);
-
-        return "player-form-vip";
-    }
-
     @PostMapping("/savePlayer")
     public String savePlayer(@ModelAttribute("player")@Valid PlayerForTheExp player, BindingResult bindingResult)
     {
@@ -54,24 +45,9 @@ public class PlayerController
             {
                 player.setStatus("Normal");
             playerService.savePlayer(player);
-            return "redirect:/player/list";
+            return "player-registration-confirmation";
             }
 
-        }
-
-     @PostMapping("/savePlayerVip")
-        public String savePlayerVip(@ModelAttribute("player")@Valid PlayerForTheExp player, BindingResult bindingResult)
-        {
-            if(bindingResult.hasErrors())
-            {
-                return "player-form-vip";
-            }
-            else
-                {
-                player.setStatus("VIP");
-                playerService.savePlayer(player);
-                return "redirect:/player/list";
-            }
         }
 
     @GetMapping("/showFormForUpdate")
