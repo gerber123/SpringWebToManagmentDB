@@ -1,12 +1,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Login Form</title>
     <link type="text/css"
           rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/login-pagecss.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 </head>
 <body>
 
@@ -21,7 +23,6 @@
         <form:form action="${pageContext.request.contextPath}/register/processRegistrationForm"
                    modelAttribute="crmUser"
                    class="form-horizontal">
-
             <c:if test="${registrationError != null}">
                 <div class="errorMsg">
                         ${registrationError}
@@ -46,7 +47,7 @@
 
                 <p>Email
                 <form:errors path="email" cssClass="error" /></p>
-                <form:input path="email" placeholder="email (*)" class="form-control" />
+                <form:input path="email" placeholder="theme (*)" class="form-control" />
 
                 <input type="submit" value="Register"/>
 

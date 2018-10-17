@@ -2,7 +2,6 @@ package com.gerber.springdemo.service;
 
 import com.gerber.springdemo.dao.RoleDao;
 import com.gerber.springdemo.dao.UserDAO;
-import com.gerber.springdemo.entity.PlayerForTheExp;
 import com.gerber.springdemo.entity.Role;
 import com.gerber.springdemo.entity.User;
 import com.gerber.springdemo.user.CrmUser;
@@ -15,9 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -51,6 +48,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
+    public  List<User> findByUserNameFinder(String userName) {
+        return userDao.findByUserNameFinder(userName);
+    }
+
+    @Override
+    @Transactional
     public void save(CrmUser crmUser) {
         User user = new User();
         // assign user details to the user object
@@ -59,7 +62,8 @@ public class UserServiceImpl implements UserService {
         user.setFirstName(crmUser.getFirstName());
         user.setLastName(crmUser.getLastName());
         user.setEmail(crmUser.getEmail());
-
+        user.setLast_vote_date(new Date());
+        user.setVoteEnable(1);
         // give user default role of "employee"
         user.setRoles(Arrays.asList(roleDao.findRoleByName("ROLE_EMPLOYEE")));
 
@@ -67,6 +71,50 @@ public class UserServiceImpl implements UserService {
         userDao.save(user);
     }
 
+    @Override
+    @Transactional
+    public void saveUser(User user) {
+
+        // give user default role of "employee"
+
+        Collection<Role> e =user.getRoles();
+        Role firstElementOfRoles = e.iterator().next();
+        String firstElementOfRolesToString = firstElementOfRoles.getName();
+
+
+//        System.out.println(user.getLast_vote_date().getTime()+"<<<<<<<<<<<<<<<<<<<<<<<<<");
+            user.setRoles(Arrays.asList(roleDao.findRoleByName(firstElementOfRolesToString)));
+            user.setLast_vote_date(new Date());
+//        user.setLast_vote_date(user.getLast_vote_date());
+        // save user in the database
+        userDao.save(user);
+    }
+
+    @Override
+    @Transactional
+    public User getUser(long theId) {
+        User user =userDao.getUser(theId);
+        return user;
+    }
+
+
+    @Override
+    @Transactional
+    public void deleteUser(long theId) {
+        userDao.deleteUser(theId);
+    }
+
+    @Override
+    @Transactional
+    public void afterVoted(String name) {
+        userDao.afterVoted(name);
+    }
+
+    @Override
+    @Transactional
+    public void checkVoteEnabled() {
+        userDao.checkVoteEnabled();
+    }
 
 
     @Override

@@ -4,7 +4,7 @@ body{
     background-image:url("../images/bgimg.jpg");
     background-size:cover;
     background-position:center;
-    font-family:sans-serif;
+    font-family: 'Cinzel', serif;
 }
 .error
 {
@@ -15,6 +15,48 @@ body{
     border-radius: 13px;
     display: inline-block;
     font-size: 12px;
+    font-family: 'Cinzel', serif;
+}
+.box {
+    border: 5px solid grey;
+    border-radius: 15px;
+    width: 320px;
+    height: fit-content;
+    background: #A62A2A;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 55px 30px 10px 40px;
+    font-family: 'Cinzel', serif;
+}
+
+.box input[type="text"], input[type="password"]
+{
+
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size:16px;
+    font-family: 'Cinzel', serif;
+}
+.box input[type="submit"]
+{
+    text-align: center;
+
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #ffff;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    font-family: 'Cinzel', serif;
 }
 .rightbox{
     border: 5px solid grey;
@@ -32,6 +74,7 @@ body{
     transform: translate(-50%,-50%);
     box-sizing: border-box;
     padding: 55px 30px 10px 40px;
+    font-family: 'Cinzel', serif;
 }
 .leftbox{
     border: 5px solid grey;
@@ -49,6 +92,7 @@ body{
     transform: translate(-50%,-50%);
     box-sizing: border-box;
     padding: 55px 30px 10px 40px;
+    font-family: 'Cinzel', serif;
 }
 .avatar
 {
@@ -64,33 +108,38 @@ h1{
     margin:0;
     padding: 0 0 20px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     color:#D9D919;
+    font-family: 'Cinzel', serif;
 
 }
 h3{
     margin:0;
     padding: 0 0 20px;
     text-align: center;
-    font-size: 20px;
+    font-size: 17px;
     margin-bottom: 20px;
     /*text-align: justify-all;*/
     color:#fff;
+    font-family: 'Cinzel', serif;
 }
 .rightbox p{
     margin: 0;
     padding: 0;
     font-weight: bold;
+    font-family: 'Cinzel', serif;
 }
 .leftbox p{
     margin: 0;
     padding: 0;
     font-weight: bold;
+    font-family: 'Cinzel', serif;
 }
 .box input
 {
     width: 100%;
     margin-bottom: 10%;
+    font-family: 'Cinzel', serif;
 
 }
 .rightbox input[type="text"], input[type="password"]
@@ -102,7 +151,9 @@ h3{
     height: 40px;
     color: #fff;
     font-size:16px;
+    font-family: 'Cinzel', serif;
 }
+
 .rightbox input[type="submit"]
 {
     text-align: center;
@@ -111,15 +162,17 @@ h3{
     height: 40px;
     background: #fb2525;
     color: #ffff;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 20px;
     margin-bottom: 10px;
+    font-family: 'Cinzel', serif;
 }
 .rightbox input[type="submit"]:hover
 {
     cursor: pointer;
     background: #ffc107;
     color:#000;
+    font-family: 'Cinzel', serif;
 
 }
 
@@ -132,6 +185,7 @@ h3{
     height: 40px;
     color: #fff;
     font-size:16px;
+    font-family: 'Cinzel', serif;
 }
 .leftbox input[type="submit"]
 { text-align: center;
@@ -140,16 +194,26 @@ h3{
     height: 40px;
     background: #fb2525;
     color: #ffff;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 20px;
     margin-bottom: 10px;
+    font-family: 'Cinzel', serif;
 }
 .leftbox input[type="submit"]:hover
 {
     cursor: pointer;
     background: #ffc107;
     color:#000;
+    font-family: 'Cinzel', serif;
 
+}
+p
+{
+    color: #fff;
+    font-size: 17px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-family: 'Cinzel', serif;
 }
 select {
     outline: 0;
@@ -161,6 +225,7 @@ select {
     /*margin: 0 auto;*/
     /*text-align:center;*/
     margin-bottom: 15px;
+    font-family: 'Cinzel', serif;
 }
 .box a
 {
@@ -168,10 +233,12 @@ select {
     font-size: 12px;
     line-height:20px;
     color: darkgrey;
+    font-family: 'Cinzel', serif;
 }
 .box a:hover
 {
     color: #ffc107;
+    font-family: 'Cinzel', serif;
 }
 .errorMsg
 {
@@ -179,6 +246,27 @@ select {
     text-size:17px;
     text-align: center;
     margin-bottom:10px;
+    font-family: 'Cinzel', serif;
+
+}
+.errorImg
+{
+    width:50px;
+    height:50px;
+    left:calc(50% - 50px);
+}
+.box a:hover
+{
+    color: #ffc107;
+    font-family: 'Cinzel', serif;
+}
+.errorMsg
+{
+    color: #b27400;
+    text-size:17px;
+    text-align: center;
+    margin-bottom:10px;
+    font-family: 'Cinzel', serif;
 
 }
 .errorImg

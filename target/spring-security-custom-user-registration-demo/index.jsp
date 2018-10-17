@@ -1,1 +1,1 @@
-<%response.sendRedirect("/homepage");%>
+<%response.sendRedirect("/preload");%>

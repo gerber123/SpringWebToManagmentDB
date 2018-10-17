@@ -4,7 +4,7 @@ body{
     background-image:url("../images/bgimg.jpg");
     background-size:cover;
     background-position:center;
-    font-family:sans-serif;
+    font-family: 'Cinzel', serif;
 }
 .error
 {
@@ -15,6 +15,7 @@ body{
     border-radius: 13px;
     display: inline-block;
     font-size: 12px;
+    font-family: 'Cinzel', serif;
 }
 .box{
     border:  5px solid grey;
@@ -29,6 +30,7 @@ body{
     transform: translate(-50%,-50%);
     box-sizing: border-box;
     padding: 55px 30px 10px  40px;
+    font-family: 'Cinzel', serif;
 }
 .avatar
 {
@@ -45,17 +47,20 @@ h1{
     padding: 0 0 20px;
     text-align: center;
     font-size: 26px;
+    font-family: 'Cinzel', serif;
     color:#D9D919;
 }
 .box p{
     margin: 0;
     padding: 0;
     font-weight: bold;
+    font-family: 'Cinzel', serif;
 }
 .box input
 {
     width: 100%;
     margin-bottom: 10%;
+    font-family: 'Cinzel', serif;
 
 }
 .box input[type="text"], input[type="password"]
@@ -66,6 +71,7 @@ h1{
     outline: none;
     height: 40px;
     color: #fff;
+    font-family: 'Cinzel', serif;
     font-size:16px;
 }
 .box input[type="submit"]
@@ -78,24 +84,33 @@ h1{
     font-size: 18px;
     border-radius: 20px;
     margin-bottom: 10px;
+    font-family: 'Cinzel', serif;
 }
 .box input[type="submit"]:hover
 {
     cursor: pointer;
     background: #ffc107;
     color:#000;
+    font-family: 'Cinzel', serif;
 
 }
-select {
-    outline: 0;
-    box-shadow: none;
+select
+{
     border-radius: 15px;
-    background: #fffcf3;
-    align-content: center;
-    /*display: block;*/
-    /*margin: 0 auto;*/
-    /*text-align:center;*/
-    margin-bottom: 15px;
+    background: #961e1e;
+    border: none;
+    font-size: 14px;
+    height: 29px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 268px;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Cinzel', serif;
 }
 .box a
 {
@@ -103,10 +118,12 @@ select {
     font-size: 12px;
     line-height:20px;
     color: darkgrey;
+    font-family: 'Cinzel', serif;
 }
 .box a:hover
 {
     color: #ffc107;
+    font-family: 'Cinzel', serif;
 }
 .errorMsg
 {
@@ -114,7 +131,18 @@ select {
     text-size:17px;
     text-align: center;
     margin-bottom:10px;
+    font-family: 'Cinzel', serif;
 
+}
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    text-align:center;
 }
 .errorImg
 {

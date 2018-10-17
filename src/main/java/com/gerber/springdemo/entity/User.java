@@ -1,7 +1,12 @@
 package com.gerber.springdemo.entity;
 
+import com.gerber.springdemo.Validation.ValidEmail;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Collection;
+import java.util.Date;
 
 
 @Entity
@@ -20,15 +25,25 @@ public class User {
     private String password;
 
     @Column(name = "first_name")
+    @NotNull(message = "is required")
     private String firstName;
 
     @Column(name = "last_name")
+    @NotNull(message = "is required")
     private String lastName;
 
+
     @Column(name = "email")
+    @ValidEmail
     private String email;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @Column(name="voteEnable")
+    private int voteEnable;
+
+    @Column(name="last_vote_date")
+    private Date last_vote_date;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -57,6 +72,21 @@ public class User {
         this.roles = roles;
     }
 
+    public Date getLast_vote_date() {
+        return last_vote_date;
+    }
+
+    public void setLast_vote_date(Date last_vote_date) {
+        this.last_vote_date = last_vote_date;
+    }
+
+    public int getVoteEnable() {
+        return voteEnable;
+    }
+
+    public void setVoteEnable(int voteEnable) {
+        this.voteEnable = voteEnable;
+    }
 
     public Long getId() {
         return id;

@@ -7,6 +7,7 @@
     <link type="text/css"
           rel="stylesheet"
           href="${pageContext.request.contextPath}../resources/css/login-pagecss.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 </head>
 <body>
 

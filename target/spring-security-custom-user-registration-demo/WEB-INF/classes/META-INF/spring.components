@@ -1,17 +1,17 @@
 #
-#Sun Oct 14 15:48:42 CEST 2018
-com.gerber.springdemo.service.PlayerServiceImpl=org.springframework.stereotype.Component
+#Wed Oct 17 17:29:29 CEST 2018
 com.gerber.springdemo.entity.Role=javax.persistence.Entity,javax.persistence.Table
-com.gerber.springdemo.service.UserServiceImpl=org.springframework.stereotype.Component
 com.gerber.springdemo.config.CustomAuthenticationSuccessHandler=org.springframework.stereotype.Component
-com.gerber.springdemo.entity.PlayerForTheExp=javax.persistence.Entity,javax.persistence.Table
+com.gerber.springdemo.service.UserServiceImpl=org.springframework.stereotype.Component
 com.gerber.springdemo.controller.LoginController=org.springframework.stereotype.Component
 com.gerber.springdemo.controller.RegistrationController=org.springframework.stereotype.Component
+com.gerber.springdemo.entity.Websites=javax.persistence.Entity,javax.persistence.Table
 com.gerber.springdemo.config.SecurityConfig=org.springframework.stereotype.Component
-com.gerber.springdemo.controller.PlayerController=org.springframework.stereotype.Component
 com.gerber.springdemo.controller.UserController=org.springframework.stereotype.Component
+com.gerber.springdemo.dao.WebsiteDAOImpl=org.springframework.stereotype.Component
 com.gerber.springdemo.config.DemoAppConfig=org.springframework.stereotype.Component
 com.gerber.springdemo.dao.RoleDaoImpl=org.springframework.stereotype.Component
-com.gerber.springdemo.dao.PlayerDAOImpl=org.springframework.stereotype.Component
+com.gerber.springdemo.controller.WebsiteController=org.springframework.stereotype.Component
 com.gerber.springdemo.dao.UserDAOImpl=org.springframework.stereotype.Component
+com.gerber.springdemo.service.WebsiteServiceImpl=org.springframework.stereotype.Component
 com.gerber.springdemo.entity.User=javax.persistence.Entity,javax.persistence.Table
