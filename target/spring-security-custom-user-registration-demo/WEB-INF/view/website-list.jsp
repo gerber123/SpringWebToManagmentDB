@@ -15,7 +15,7 @@
     <title>Website List</title>
     <link type="text/css"
           rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/style.css"/>
+          href="${pageContext.request.contextPath}/resources/css/list-pages.css"/>
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 
 </head>
@@ -24,7 +24,7 @@
     <div id="wrapper">
 
         <div id="header">
-            <h2><center>Website Tournament - Check your skill</center></h2>
+            <h2>Try Your Front <span style="color:red">skills!</span></h2>
         </div>
 
     </div>
@@ -83,7 +83,7 @@
                     <td><a href="http://${temp.website_url}" target="_blank">${temp.website_url}</a></td>
                     <td>${temp.vote_points}</td>
                     <%--<td><input type="button" value="Open Window" onclick="window.open('${temp.website_url}')"> </td>--%>
-                    <td><a href="${voteLink}" onclick=" if (!confirm('You can vote once time per day, Are you sure?')) return false;"><img src="/resources/images/voter.png" class="voterImg"/> </a></td>
+                    <td><a href="${voteLink}" class="jumpVote" onclick=" if (!confirm('You can vote once time per day, Are you sure?')) return false;"><img src="/resources/images/voter.png" class="voterImg"/> </a></td>
                     <security:authorize access="hasAnyRole('ADMIN','MANAGER')">
                     <td><a href="${updateLink}">Update</a>&nbsp;||
                         <a href="${deleteLink}" onclick="if(!(confirm('Are You Sure you want delete this website?')))return false">Ban&Delete</a></td>

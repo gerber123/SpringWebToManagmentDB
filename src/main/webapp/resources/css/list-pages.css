@@ -2,7 +2,7 @@ html, body{
 	padding:0px;
 	font-family: 'Cinzel', serif;
 	text-align: center;
-	background-image:url("../images/bgimg.jpg");
+	background-image:url("../images/background.jpg");
     background-size:cover;
     background-position:center;
 
@@ -32,6 +32,29 @@ table {
 
 	background-image:url("../images/bgimg.jpg");
 }
+.alert {
+	padding: 20px;
+	background-color: #0031f4; /* Red */
+	color: white;
+	margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+	margin-left: 15px;
+	color: white;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+	color: black;
+}
 .voterImg
 {
 	width:45px;
@@ -47,13 +70,16 @@ table {
 	 font-family: 'Cinzel', serif;
 	 outline: none;
 	 height: 40px;
-	 color: #fff;
-	 font-size:16px;
+	 /*color: #fff;*/
+	 color:#000000;
+	 font-weight:bold;
+	 font-size:17px;
 
  }
 th {
 	border-bottom:1px solid gray;
-	background:none repeat scroll 0 0 #990033;
+	/*background:none repeat scroll 0 0 #990033;*/
+	background:none repeat scroll 0 0 #000000;
 	padding:10px;
 	font-family: 'Cinzel', serif;
 	height:67px;
@@ -70,12 +96,32 @@ tr {
 tr:nth-child(even) {background: #FFFFFF; font-family: 'Cinzel', serif;}
 tr:nth-child(odd) {background: #BBBBBB; font-family: 'Cinzel', serif;}
  
-#wrapper {width: 100%; border: solid 3px grey ;	border-radius: 12px; font-family: 'Cinzel', serif; }
-#header {position:static;width:100%; height:10%; text-align-all: center  ;background: #990033;border-radius: 4px;font-family: 'Cinzel', serif;}
-#header h2 {position:static;width: 100%; margin:auto; color: #D9D919;text-align: center; padding-top:15px;border-radius: 15px;font-family: 'Cinzel', serif;}
+#wrapper
+{
+	width: 100%;
+	border: solid 3px grey ;
+	border-radius: 12px;
+	font-family: 'Cinzel', serif;
+}
+#header
+{
+	position:static;width:100%;
+	height:10%;
+	text-align-all: center  ;
+	background: #000000;
+	border-radius: 4px;
+	font-family: 'Cinzel', serif;
+}
+#header h2 {
+	animation: wiggle 4s infinite;     height: 70px;
+	margin: 0px auto 50px auto;
+	font-size: 50px;
+	text-shadow: -1px 2px 2px gray;
+	text-align: center;
+	color: azure;font-family: 'Cinzel', serif;}
 #container { margin:auto}
 /*#container h3 {color: #8e8c08;}*/
-#container h3 {position:static;width: 100%; margin:auto; color: #D9D919;text-align: center; padding-top:15px;border-radius: 15px;font-family: 'Cinzel', serif;}
+#container h3 {position:static;width: 100%; margin:auto; color: grey;text-align: center; padding-top:15px;border-radius: 15px;font-family: 'Cinzel', serif;}
 
 #container #content {margin-top: 20px;font-family: 'Cinzel', serif;}
 #containerForm
@@ -96,14 +142,17 @@ tr:nth-child(odd) {background: #BBBBBB; font-family: 'Cinzel', serif;}
 	text-decoration: none;
 	font-size: 16px;
 	line-height:20px;
-	color: #a98e43;
+	/*color: #a90005;*/
+	color: #956d16;
 	font-family: 'Cinzel', serif;
 }
 #container a:hover
 {
-	color: #ff3100;
+	color: #da0b00;
 	font-family: 'Cinzel', serif;
+	animation: wiggle 3s infinite;
 }
+
 .add-button {
 	border: solid 5px grey;
 	/*border: 1px solid #666; */
@@ -115,16 +164,18 @@ tr:nth-child(odd) {background: #BBBBBB; font-family: 'Cinzel', serif;}
 	padding: 5px 10px; 
 	margin-top:20px;
 	margin-bottom: 15px;
-	background: #990033;
+	background:#000000;
+	/*background: #990033;*/
 	font-family: 'Cinzel', serif;
 }
 .add-button:hover
 {
-	background-color: yellow;
+	/*background-color: yellow;*/
+	background-color: grey;
 	font-family: 'Cinzel', serif;
 }
 #textSearch{
-	color: red;
+	color: #000000;
 	text-align: center;
 	display:inline;
 	font-size: 15px;
@@ -132,7 +183,8 @@ tr:nth-child(odd) {background: #BBBBBB; font-family: 'Cinzel', serif;}
 	font-family: 'Cinzel', serif;
 }
 #buttons{
-	color: #D9D919;
+	/*color: #D9D919;*/
+	color:grey;
 	text-align: center;
 	display: inline-flex;
 	font-size: 15px;
@@ -144,7 +196,8 @@ tr:nth-child(odd) {background: #BBBBBB; font-family: 'Cinzel', serif;}
 	outline: none;
 	font-family: 'Cinzel', serif;
 	height: 40px;
-	background: #990033;
+	/*background: #990033;*/
+	background: #000000;
 	color: #ffff;
 	width: 125px;
 	font-size: 18px;
@@ -155,21 +208,54 @@ tr:nth-child(odd) {background: #BBBBBB; font-family: 'Cinzel', serif;}
 .button:hover
 {
 	cursor: pointer;
-	background: #ffc107;
+	/*background: #ffc107;*/
+	background: grey;
 	color:#000;
 	font-family: 'Cinzel', serif;
+	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+	transform: translate3d(0, 0, 0);
+	backface-visibility: hidden;
+	perspective: 1000px;
+}
+
+@keyframes shake {
+	10%, 90% {
+		transform: translate3d(-1px, 0, 0);
+	}
+
+	20%, 80% {
+		transform: translate3d(0px, 0, 0);
+	}
+
+	30%, 50%, 70% {
+		transform: translate3d(-1px, 0, 0);
+	}
+
+	40%, 60% {
+		transform: translate3d(0px, 0, 0);
+	}
 }
 p
 {
-	color: #D9D919;
+	/*color: #D9D919;*/
+	color: grey;
 	text-align: center;
 	font-size: 15px;
 	font-family: 'Cinzel', serif;
 }
 h3
 {
-	color: #990033;
+	/*color: #990033;*/
+	color:#000000;
 	text-align: center;
 	font-size: 35px;
 	font-family: 'Cinzel', serif;
+}
+
+@keyframes wiggle {
+	0% { transform: rotate(0deg); }
+	80% { transform: rotate(0deg); }
+	85% { transform: rotate(2deg); }
+	95% { transform: rotate(-2deg); }
+	100% { transform: rotate(0deg); }
 }

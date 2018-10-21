@@ -1,10 +1,10 @@
 <html>
 
 <head>
-	<title>luv2code - Access Denied</title>
+	<title>TestYourFront - Access Denied</title>
 	<link type="text/css"
 		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/style.css"/>
+		  href="${pageContext.request.contextPath}/resources/css/list-pages.css"/>
 	<link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 </head>
 

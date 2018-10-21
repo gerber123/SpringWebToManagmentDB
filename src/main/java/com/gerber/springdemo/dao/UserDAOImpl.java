@@ -113,8 +113,10 @@ public class UserDAOImpl implements UserDAO
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
         User user = findByUserName(name);
+
         Date dateOfLastVote =user.getLast_vote_date();
         Date todayDate= new Date();
+
 
         boolean moreThanDay = Math.abs(dateOfLastVote.getTime() - todayDate.getTime()) > MILLIS_PER_DAY;
         if(moreThanDay)

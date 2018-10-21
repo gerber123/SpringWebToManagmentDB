@@ -1,15 +1,15 @@
 body{
     margin:0;
     padding:0;
-    background-image:url("../images/bgimg.jpg");
+    background-image:url("../images/background.jpg");
     background-size:cover;
     background-position:center;
     font-family: 'Cinzel', serif;
 }
 .error
 {
-    color: yellow;
-    background: darkred;
+    color: grey;
+    background: #000000;
     border: 3px solid grey;
     padding: 4px;
     border-radius: 13px;
@@ -22,15 +22,17 @@ body{
     border-radius:15px;
     width: 320px;
     height: fit-content;
-    background: #A62A2A;
+    /*background: #A62A2A;*/
+    background: #352c2c;
     color: #fff;
-    top: 50%;
+    top: 52%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
     padding: 55px 30px 10px  40px;
     font-family: 'Cinzel', serif;
+
 }
 .avatar
 {
@@ -44,12 +46,15 @@ body{
 }
 h1{
     margin:0;
+    text-shadow: -1px 2px 2px gray;
     padding: 0 0 20px;
     text-align: center;
     font-size: 26px;
     font-family: 'Cinzel', serif;
     color:#D9D919;
+    animation: wiggle 2.5s infinite;
 }
+
 .box p{
     margin: 0;
     padding: 0;
@@ -74,12 +79,12 @@ h1{
     font-family: 'Cinzel', serif;
     font-size:16px;
 }
-.box input[type="submit"]
-{
-    border:none;
+.box input[type="submit"] {
+    border: none;
     outline: none;
     height: 40px;
-    background: #fb2525;
+    /*background: #fb2525;*/
+    background: #000000;
     color: #ffff;
     font-size: 18px;
     border-radius: 20px;
@@ -89,15 +94,21 @@ h1{
 .box input[type="submit"]:hover
 {
     cursor: pointer;
-    background: #ffc107;
+    /*background: #ffc107;*/
+    background: grey;
     color:#000;
     font-family: 'Cinzel', serif;
-
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
+
 select
 {
     border-radius: 15px;
-    background: #961e1e;
+    /*background: #961e1e;*/
+    background: #000000;
     border: none;
     font-size: 14px;
     height: 29px;
@@ -149,4 +160,30 @@ h3 {
     width:50px;
     height:50px;
     left:calc(50% - 50px);
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    80% { transform: rotate(0deg); }
+    85% { transform: rotate(5deg); }
+    95% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }

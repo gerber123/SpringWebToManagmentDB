@@ -10,11 +10,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Player Form</title>
+    <title>Website-registration</title>
 
     <link type="text/css"
           rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/entry-page.css"/>
+          href="${pageContext.request.contextPath}/resources/css/form-page.css"/>
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 </head>
 <body>
@@ -60,7 +60,7 @@
 
 
         <img src="${pageContext.request.contextPath}/resources/images/website.jpg" class="avatar">
-        <h1>Register Your Website</h1>
+        <h1>Register <span style="color:red">Your</span> Website</h1>
 
 
 

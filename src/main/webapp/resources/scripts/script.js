@@ -5,7 +5,7 @@
 
     function frame()
     {
-        if(loading==100)
+        if(loading==50)
         {
             clearInterval(id);
             window.open("homepage","_self");
@@ -13,9 +13,9 @@
         else
         {
             loading=loading+1;
-            if(loading==90)
+            if(loading==45)
             {
-                preload.style.animation="fadeout 1s ease";
+                preload.style.animation="fadeout 1s easy";
             }
         }
     }

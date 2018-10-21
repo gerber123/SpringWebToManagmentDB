@@ -18,9 +18,9 @@
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 </head>
 <body>
-
+    <div id="welcome">Welcome in Tournament of<span style="color:red"> Front-Ender </span>skills</div>
     <security:authorize access="hasAnyRole('MANAGER','ADMIN')">
-    <div class="leftbox" style="left:13%">
+    <div class="leftbox" style="left:4%" >
         <img src="${pageContext.request.contextPath}/resources/images/website.jpg" class="avatar">
         <h1>Website managment</h1>
         <h3>Managment of websites. Delete, update etc. </h3>
@@ -28,21 +28,21 @@
     </div>
     </security:authorize>
 
-    <div class="leftbox">
+    <div class="leftbox" style="left:27%" >
         <img src="${pageContext.request.contextPath}/resources/images/register.jpg" class="avatar">
         <h1>Register!</h1>
         <h3>Take part in the competition and register your website</h3>
         <a href="${pageContext.request.contextPath}/website/showFormForRegister"><input type="submit" value="Register Website" ></a>
     </div>
 
-    <div class="rightbox" >
+    <div class="rightbox" style="left:51%" >
         <img src="${pageContext.request.contextPath}/resources/images/ranking.jpg" class="avatar">
         <h1>Ranking!</h1>
         <h3>Check the ranking of websites and cast your vote</h3>
         <a href="${pageContext.request.contextPath}/website/list"><input type="submit" value="Check Ranking" style="margin-bottom:30px" ></a>
     </div>
     <security:authorize access="hasAnyRole('MANAGER','ADMIN')">
-    <div class="rightbox" style="left:83%">
+    <div class="rightbox" style="left:73%">
         <img src="${pageContext.request.contextPath}/resources/images/settings.jpg" class="avatar">
         <h1>Users managment</h1>
         <h3>Manage users, delete, add, change permits</h3>

@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -29,8 +30,6 @@ public class WebsiteController
     @GetMapping("/list")
     public String websiteList(Model model)
     {
-
-
         userService.checkVoteEnabled();
         List<Websites> theWebsites= websiteService.getAllWebsites();
         model.addAttribute("websites",theWebsites);
@@ -39,10 +38,6 @@ public class WebsiteController
     @GetMapping("/showFormForRegister")
     public String showFormForRegister(Model model)
     {
-
-
-
-
         Websites website = new Websites();
         model.addAttribute("website",website);
 
@@ -65,13 +60,44 @@ public class WebsiteController
      }
 
     @GetMapping("voteForWebsite")
-    public String voteForWebsite(@RequestParam("websiteId")int theId)
+    public String voteForWebsite(@RequestParam("websiteId")int theId, Model model)
     {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
 
         User user =userService.findByUserName(name);
+        user.getLast_vote_date();
 
+
+        Date dateOfLastVote =user.getLast_vote_date();
+        Date todayDate= new Date();
+
+        double LastTimeOfVote = Math.abs(dateOfLastVote.getTime() - todayDate.getTime());
+
+        double TimeToNextVoteInHours = Math.ceil(LastTimeOfVote/3600000);
+
+        System.out.println(TimeToNextVoteInHours+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        int TimeToNextVoteInMinutes = (int)(LastTimeOfVote-(3600000*(TimeToNextVoteInHours-1)));
+        TimeToNextVoteInMinutes= TimeToNextVoteInMinutes/60000;
+        int tempFullDayHours=24;
+        int tempFullDayMinutes=60;
+        int TillThisDayInHours = (int)(tempFullDayHours-TimeToNextVoteInHours);
+        int TillThisDayInMinutes = tempFullDayMinutes-TimeToNextVoteInMinutes;
+        if(TillThisDayInMinutes==60)
+        {
+            TillThisDayInHours+=1;
+            TillThisDayInMinutes=0;
+        }
+        String StringTimeToNextVoteHours = TillThisDayInHours+"";
+        String StringTimeToNextVoteMinutes = TillThisDayInMinutes+"";
+
+        if(TillThisDayInMinutes<10)
+        {
+            StringTimeToNextVoteMinutes="0"+TillThisDayInMinutes;
+        }
+
+        model.addAttribute("TimeToNextVoteInHours",StringTimeToNextVoteHours);
+        model.addAttribute("TimeToNextVoteInMinutes",StringTimeToNextVoteMinutes);
 
         if(user.getVoteEnable()==1)
         {

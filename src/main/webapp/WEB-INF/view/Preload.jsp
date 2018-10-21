@@ -8,8 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Loading...</title>
     <link rel="stylesheet" href="/resources/css/preload.css">
+    <link rel="stylesheet"           href="${pageContext.request.contextPath}/resources/css/form-page.css"/>
+    >
+
 </head>
 <body>
     <div class="preload" id="preload">

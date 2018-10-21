@@ -5,10 +5,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Login Form</title>
+    <title>User-Edit</title>
     <link type="text/css"
           rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/login-pagecss.css"/>
+          href="${pageContext.request.contextPath}/resources/css/form-page.css"/>
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 </head>
 <body>
@@ -17,7 +17,7 @@
 
 
     <img src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="avatar">
-    <h1>Register Here!</h1>
+    <h1>Register <span style="color:red">Here!</span> </h1>
 
 
 
@@ -63,6 +63,7 @@
 
 
         <input type="submit" value="Register"/>
+        <a href="${pageContext.request.contextPath}/user/list">Back to User list</a>
 
         <input type="hidden"
                name="${_csrf.parameterName}"

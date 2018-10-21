@@ -12,10 +12,10 @@
 <html>
 <head>
 
-    <title>Player List</title>
+    <title>User List</title>
     <link type="text/css"
           rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/style.css"/>
+          href="${pageContext.request.contextPath}/resources/css/list-pages.css"/>
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 
 </head>
@@ -24,7 +24,7 @@
     <div id="wrapper">
 
         <div id="header">
-            <h2><center>Website Tournament - Check your skill</center></h2>
+            <h2><center>Website Tournament - <span style="color:red">Check your skill</span></center></h2>
         </div>
 
     </div>

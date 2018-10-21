@@ -3,10 +3,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Login Form</title>
+    <title>Login-TestFront</title>
     <link type="text/css"
           rel="stylesheet"
-          href="${pageContext.request.contextPath}../resources/css/login-pagecss.css"/>
+          href="${pageContext.request.contextPath}../resources/css/form-page.css"/>
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 </head>
 <body>
@@ -15,7 +15,7 @@
 
         <c:if test="${param.logout==null&& param.error==null}">
             <img src="${pageContext.request.contextPath}/resources/images/avatar.jpg" class="avatar">
-            <h1>Login Here</h1>
+            <h1>Login <span style="color:red">Here</span></h1>
         </c:if>
 
         <c:if test="${param.error != null}">

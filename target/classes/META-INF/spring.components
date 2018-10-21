@@ -1,8 +1,8 @@
 #
-#Wed Oct 17 17:29:29 CEST 2018
+#Sat Oct 20 23:52:02 CEST 2018
 com.gerber.springdemo.entity.Role=javax.persistence.Entity,javax.persistence.Table
-com.gerber.springdemo.config.CustomAuthenticationSuccessHandler=org.springframework.stereotype.Component
 com.gerber.springdemo.service.UserServiceImpl=org.springframework.stereotype.Component
+com.gerber.springdemo.config.CustomAuthenticationSuccessHandler=org.springframework.stereotype.Component
 com.gerber.springdemo.controller.LoginController=org.springframework.stereotype.Component
 com.gerber.springdemo.controller.RegistrationController=org.springframework.stereotype.Component
 com.gerber.springdemo.entity.Websites=javax.persistence.Entity,javax.persistence.Table
