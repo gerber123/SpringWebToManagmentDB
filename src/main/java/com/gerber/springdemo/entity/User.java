@@ -49,6 +49,10 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="websites_id")
+    private Websites websites;
+
     public User()
     {
 
@@ -70,6 +74,14 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.roles = roles;
+    }
+
+    public Websites getWebsites() {
+        return websites;
+    }
+
+    public void setWebsites(Websites websites) {
+        this.websites = websites;
     }
 
     public Date getLast_vote_date() {

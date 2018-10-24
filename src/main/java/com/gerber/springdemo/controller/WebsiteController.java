@@ -1,7 +1,9 @@
 package com.gerber.springdemo.controller;
 
+import com.gerber.springdemo.entity.Email;
 import com.gerber.springdemo.entity.User;
 import com.gerber.springdemo.entity.Websites;
+import com.gerber.springdemo.service.EmailService;
 import com.gerber.springdemo.service.UserService;
 import com.gerber.springdemo.service.WebsiteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class WebsiteController
     @Autowired
     WebsiteService websiteService;
 
+    @Autowired
+    EmailService emailService;
+
 
     @Autowired
     UserService userService;
@@ -35,17 +40,83 @@ public class WebsiteController
         model.addAttribute("websites",theWebsites);
         return "website-list";
     }
+
+    @GetMapping("/user-detail")
+    public String getUserProfile(@RequestParam("websiteId")int theId,Model model)
+    {
+        Websites webSite = websiteService.getWebsite(theId);
+        String userName =webSite.getUser().getUserName();
+        User user = userService.findByUserName(userName);
+
+        int placeOfRanking = websiteService.getPlaceOfRanking(user.getUserName());
+        Websites website = user.getWebsites();
+        model.addAttribute("user",user);
+        model.addAttribute("website",website);
+        model.addAttribute("placeOfRanking",placeOfRanking);
+
+        return "fronter-profil";
+
+    }
+
+    @RequestMapping("/showFormForEmail")
+    public String showFormForEmail (@RequestParam("websiteId")int theId,Model model)
+    {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        User userWriter = userService.findByUserName(name);
+
+
+        Websites webSite = websiteService.getWebsite(theId);
+        String userName =webSite.getUser().getUserName();
+        User userReceiver = userService.findByUserName(userName);
+        Email email = new Email();
+        model.addAttribute("userWriter",userWriter);
+        model.addAttribute("userReceiver",userReceiver);
+        model.addAttribute("email",email);
+
+        return "email-form";
+    }
+
+    @PostMapping("/sendEmail")
+    public String sendEmail(@ModelAttribute("email") Email email, BindingResult bindingResult,Model model)
+    {
+            emailService.sendSimpleMessage(email.getReciverEmail(), email.getThemeEmail(), "Email From: " + email.getAuthorName() + " \n\n " + email.getTextEmail() + "! \n Never Forget to Test Your Front!");
+            return "sending-email";
+
+        }
+    @GetMapping("/successSendEmail")
+    public String successSendEmail()
+    {
+        return "successSendEmail";
+    }
     @GetMapping("/showFormForRegister")
     public String showFormForRegister(Model model)
     {
-        Websites website = new Websites();
-        model.addAttribute("website",website);
 
-        return "website-form";
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        User user = userService.findByUserName(name);
+        model.addAttribute("user",user);
+        if(user.getWebsites()==null) {
+            Websites website = new Websites();
+            model.addAttribute("website", website);
+            return "website-form";
+        }
+        else
+        {
+            return "website-exist-denied";
+        }
     }
+
     @PostMapping("/saveWebsite")
     public String savePlayer(@ModelAttribute("website")@Valid Websites website, BindingResult bindingResult)
     {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        User user = userService.findByUserName(name);
+        String emailOfUser =user.getEmail();
+
 
         if(bindingResult.hasErrors())
         {
@@ -54,12 +125,12 @@ public class WebsiteController
         else
             {
             websiteService.saveWebsite(website);
+            emailService.sendSimpleMessage(emailOfUser,"Witaj w konkursie","Witaj "+user.getFirstName()+" "+user.getLastName()+ "! \n Miło nam że zarejstrowałeś się do konkursu, życzymy powodzenia i pamiętaj! \n Never Forget to Test Your Front!");
             return "website-registration-confirmation";
             }
 
      }
-
-    @GetMapping("voteForWebsite")
+    @GetMapping("/voteForWebsite")
     public String voteForWebsite(@RequestParam("websiteId")int theId, Model model)
     {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -122,9 +193,23 @@ public class WebsiteController
     @GetMapping("deleteWebsite")
     public String deletePlayer(@RequestParam("websiteId")int theId)
     {
+
         websiteService.deleteWebsite(theId);
 
         return "redirect:/website/list";
+    }
+    @GetMapping("deleteWebsiteByOwner")
+    public String deleteWebsiteByOwner()
+    {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+
+        User user =userService.findByUserName(name);
+        Websites webSiteOwner = user.getWebsites();
+
+        websiteService.deleteWebsite(webSiteOwner.getId());
+
+        return "redirect:/website/showFormForRegister";
     }
     @PostMapping("/search")
     public String search(@RequestParam("nameOfAuthor")String nameOfAuthor,Model model)

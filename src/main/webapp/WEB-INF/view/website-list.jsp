@@ -51,12 +51,14 @@
 
             <table>
                 <tr>
+
                     <th>Author Name</th>
                     <th>Author Surname</th>
                     <th>Theme</th>
                     <th>Website-url</th>
                     <th>Ranking Points</th>
                     <th>Vote</th>
+                    <th>Profile</th>
                     <security:authorize access="hasAnyRole('ADMIN','MANAGER')">
                         <th>Action</th>
                     </security:authorize>
@@ -68,6 +70,9 @@
                     <c:param name="websiteId" value="${temp.id}"/>
                 </c:url>
 
+                <c:url var="profileLink" value="/website/user-detail">
+                    <c:param name="websiteId" value="${temp.id}"/>
+                </c:url>
 
                 <c:url var="deleteLink" value="/website/deleteWebsite">
                     <c:param name="websiteId" value="${temp.id}"/>
@@ -84,6 +89,7 @@
                     <td>${temp.vote_points}</td>
                     <%--<td><input type="button" value="Open Window" onclick="window.open('${temp.website_url}')"> </td>--%>
                     <td><a href="${voteLink}" class="jumpVote" onclick=" if (!confirm('You can vote once time per day, Are you sure?')) return false;"><img src="/resources/images/voter.png" class="voterImg"/> </a></td>
+                    <td><a href="${profileLink}" class="jumpVote"><img src="/resources/images/profile.jpg" class="voterImg"/> </a></td>
                     <security:authorize access="hasAnyRole('ADMIN','MANAGER')">
                     <td><a href="${updateLink}">Update</a>&nbsp;||
                         <a href="${deleteLink}" onclick="if(!(confirm('Are You Sure you want delete this website?')))return false">Ban&Delete</a></td>

@@ -50,6 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers("/website/delete").hasAnyRole("ADMIN")
                 .antMatchers("/website/**").hasAnyRole("EMPLOYEE","MANAGER","ADMIN")
                 .antMatchers("/user/list").hasAnyRole("MANAGER","ADMIN")
+                .antMatchers("/user/user-detail").hasAnyRole("MANAGER","ADMIN","EMPLOYEE")
                 .antMatchers("/user/**").hasAnyRole("ADMIN")
                 .antMatchers("/homepage").hasAnyRole("MANAGER","ADMIN","EMPLOYEE")
                 .antMatchers("/preload").hasAnyRole("MANAGER","ADMIN","EMPLOYEE")

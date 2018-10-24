@@ -17,4 +17,6 @@ public interface WebsiteDAO
     List<Websites> findWebsite(String nameOfAuthor);
 
     void voteForWebsite(int theId);
+
+    int getPlaceOfRanking(String userName);
 }

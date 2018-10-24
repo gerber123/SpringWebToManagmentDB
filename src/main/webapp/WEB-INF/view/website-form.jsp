@@ -69,11 +69,11 @@
 
             <p>Author Name:
                 <form:errors path="author_firstName" cssClass="error" /></p>
-            <form:input path="author_firstName" placeholder="First Name(*) " class="form-control" />
+            <form:input path="author_firstName" placeholder="First Name(*) " value="${user.firstName}" class="form-control" />
 
             <p>Author Surname:
                 <form:errors path="author_lastName" cssClass="error" /></p>
-            <form:input path="author_lastName" placeholder="Surname (*)" class="form-control" />
+            <form:input path="author_lastName" placeholder="Surname (*)" value="${user.lastName}" class="form-control" />
 
             <p>Theme:
                 <form:errors path="theme" cssClass="error" /></p>

@@ -17,22 +17,22 @@ body{
     font-size: 12px;
     font-family: 'Cinzel', serif;
 }
-.box {
-    border: 5px solid grey;
-    border-radius: 15px;
-    width: 320px;
-    height: fit-content;
-    /*background: #A62A2A;*/
-    background: #352c2c;
-    color: #fff;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    box-sizing: border-box;
-    padding: 55px 30px 10px 40px;
-    font-family: 'Cinzel', serif;
-}
+/*.box {*/
+    /*border: 5px solid grey;*/
+    /*border-radius: 15px;*/
+    /*width: 320px;*/
+    /*height: fit-content;*/
+    /*!*background: #A62A2A;*!*/
+    /*background: #352c2c;*/
+    /*color: #fff;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*position: absolute;*/
+    /*transform: translate(-50%,-50%);*/
+    /*box-sizing: border-box;*/
+    /*padding: 55px 30px 10px 40px;*/
+    /*font-family: 'Cinzel', serif;*/
+/*}*/
 
 .box input[type="text"], input[type="password"]
 {
@@ -127,13 +127,13 @@ h3{
     color:#fff;
     font-family: 'Cinzel', serif;
 }
-.rightbox p{
+.box p{
     margin: 0;
     padding: 0;
     font-weight: bold;
     font-family: 'Cinzel', serif;
 }
-.leftbox p{
+.box p{
     margin: 0;
     padding: 0;
     font-weight: bold;
@@ -146,7 +146,7 @@ h3{
     font-family: 'Cinzel', serif;
 
 }
-.rightbox input[type="text"], input[type="password"]
+.box input[type="text"], input[type="password"]
 {
     border: none;
     border-bottom: 1px solid #fff;
@@ -158,7 +158,7 @@ h3{
     font-family: 'Cinzel', serif;
 }
 
-.rightbox input[type="submit"]
+.box input[type="submit"]
 {
     text-align: center;
 
@@ -172,7 +172,7 @@ h3{
     margin-bottom: 10px;
     font-family: 'Cinzel', serif;
 }
-.rightbox input[type="submit"]:hover
+.box input[type="submit"]:hover
 {
     cursor: pointer;
     /*background: #ffc107;*/
@@ -182,7 +182,7 @@ h3{
 
 }
 
-.leftbox input[type="text"], input[type="password"]
+.box input[type="text"], input[type="password"]
 {
     border: none;
     border-bottom: 1px solid #fff;
@@ -193,7 +193,7 @@ h3{
     font-size:16px;
     font-family: 'Cinzel', serif;
 }
-.leftbox input[type="submit"]
+.box input[type="submit"]
 { text-align: center;
 
     outline: none;
@@ -206,7 +206,7 @@ h3{
     margin-bottom: 10px;
     font-family: 'Cinzel', serif;
 }
-.leftbox input[type="submit"]:hover
+.box input[type="submit"]:hover
 {
     cursor: pointer;
     /*background: #ffc107;*/
@@ -233,6 +233,21 @@ select {
     /*margin: 0 auto;*/
     /*text-align:center;*/
     margin-bottom: 15px;
+    font-family: 'Cinzel', serif;
+}
+.box{
+    border:  5px solid grey;
+    border-radius:15px;
+    width: 240px;
+    height: 330px;
+    display: table-cell;
+    /*background: #A62A2A;*/
+    background: #352c2c;
+    color: #fff;
+    top: 75px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 55px 30px 10px 40px;
     font-family: 'Cinzel', serif;
 }
 .box a
@@ -283,7 +298,7 @@ select {
     height:50px;
     left:calc(50% - 50px);
 }
-.leftbox:hover,.rightbox:hover {
+.box:hover,.box:hover {
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;

@@ -1,0 +1,200 @@
+body{
+    margin:0;
+    padding:0;
+    background-image:url("../images/background.jpg");
+    background-size:cover;
+    background-position:center;
+    font-family: 'Cinzel', serif;
+    font-size:15px
+}
+.error
+{
+    color: grey;
+    background: #000000;
+    border: 3px solid grey;
+    padding: 4px;
+    border-radius: 13px;
+    display: inline-block;
+    font-size: 12px;
+    font-family: 'Cinzel', serif;
+}
+.box{
+    border:  5px solid grey;
+    border-radius:15px;
+    width: 450px;
+    height: fit-content;
+    /*background: #A62A2A;*/
+    background: #352c2c;
+    color: #fff;
+    top: 52%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 50px 20px 50px 50px;
+    font-family: 'Cinzel', serif;
+
+}
+.avatar
+{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    position: absolute;
+    top:-50px;
+    left:calc(50% - 50px);
+    animation: wiggle 2.5s infinite;
+
+}
+h1{
+    margin:0;
+    text-shadow: -1px 2px 2px gray;
+    padding: 20px 0 20px;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Cinzel', serif;
+    color:#D9D919;
+
+}
+
+.box p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-family: 'Cinzel', serif;
+}
+.box input
+{
+    width: 120px;
+    /*display:inline-flex;*/
+    margin-bottom: 2%;
+    margin-right:auto;
+    margin-left:auto;
+    text-align:center;
+    font-size:10px;
+    margin-top:8%;
+    font-family: 'Cinzel', serif;
+
+}
+.box input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-size:16px;
+}
+.box input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    /*background: #fb2525;*/
+    background: #000000;
+    color: #ffff;
+    text-align:center;
+    font-size: 14px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    font-family: 'Cinzel', serif;
+}
+.box input[type="submit"]:hover
+{
+    cursor: pointer;
+    /*background: #ffc107;*/
+    background: grey;
+    color:#000;
+    font-family: 'Cinzel', serif;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    text-align: center;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+select
+{
+    border-radius: 15px;
+    /*background: #961e1e;*/
+    background: #000000;
+    border: none;
+    font-size: 14px;
+    height: 29px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 268px;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Cinzel', serif;
+}
+.box a
+{
+    text-decoration: none;
+    font-size: 15px;
+    line-height:20px;
+    color: darkgrey;
+    font-family: 'Cinzel', serif;
+}
+.box a:hover
+{
+    color: #ffc107;
+    font-family: 'Cinzel', serif;
+}
+.errorMsg
+{
+    color: #b27400;
+    text-size:17px;
+    text-align: center;
+    margin-bottom:10px;
+    font-family: 'Cinzel', serif;
+
+}
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    text-align:center;
+}
+.errorImg
+{
+    width:50px;
+    height:50px;
+    left:calc(50% - 50px);
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    80% { transform: rotate(0deg); }
+    85% { transform: rotate(5deg); }
+    95% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(4px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}

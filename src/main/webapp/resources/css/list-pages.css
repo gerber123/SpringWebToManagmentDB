@@ -95,7 +95,6 @@ tr {
  
 tr:nth-child(even) {background: #FFFFFF; font-family: 'Cinzel', serif;}
 tr:nth-child(odd) {background: #BBBBBB; font-family: 'Cinzel', serif;}
- 
 #wrapper
 {
 	width: 100%;

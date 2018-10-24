@@ -43,6 +43,10 @@ public class Websites
     private int vote_points;
 
 
+    @OneToOne(mappedBy = "websites",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    User user;
+
+
     public Websites() {
     }
 
@@ -52,6 +56,13 @@ public class Websites
         this.theme = theme;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getId() {
         return id;

@@ -42,4 +42,10 @@ public class WebsiteServiceImpl implements WebsiteService
     public void voteForWebsite(int theId) {
         websiteDAO.voteForWebsite(theId);
     }
+
+    @Override
+    @Transactional
+    public int getPlaceOfRanking(String userName) {
+        return websiteDAO.getPlaceOfRanking(userName);
+    }
 }

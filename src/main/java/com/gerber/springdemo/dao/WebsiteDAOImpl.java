@@ -14,8 +14,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class WebsiteDAOImpl implements WebsiteDAO
-{
+public class WebsiteDAOImpl implements WebsiteDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -25,7 +24,7 @@ public class WebsiteDAOImpl implements WebsiteDAO
 
     @Override
     public List<Websites> getAllWebsites() {
-        Session session =sessionFactory.getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
 //        List<Websites> listOfPlayers = session.createQuery("from Websites",Websites.class).getResultList();
 //        return listOfPlayers;
         // get the current hibernate session
@@ -35,16 +34,55 @@ public class WebsiteDAOImpl implements WebsiteDAO
 
         // execute query and get result list
         List<Websites> websites = theQuery.getResultList();
+        for (int i = 0; i < websites.size(); i++) {
+            System.out.println(websites.get(i).getAuthor_firstName());
+        }
 
         // return the results
         return websites;
     }
+
+    @Override
+    public int getPlaceOfRanking(String userName)
+    {
+        User userOfPlace = userService.findByUserName(userName);
+        Session session = sessionFactory.getCurrentSession();
+        Query<Websites> theQueryOfGetWebsites = session.createQuery("from Websites order by vote_points desc", Websites.class);
+        List<Websites> websites = theQueryOfGetWebsites.getResultList();
+
+        Query<User> theQueryOfUsers = session.createQuery("from User", User.class);
+        List<User> UsersList = theQueryOfUsers.getResultList();
+        int place =0;
+        for(int i=0;i<websites.size();i++)
+        {
+//            int UserNameOfAcc = websites.get(i).getId();
+            Websites webs = websites.get(i);
+            for(int j=0;j<UsersList.size();j++)
+            {
+                if(userOfPlace.getWebsites()==webs)
+                {
+                    place=i+1;
+                }
+            }
+        }
+        return place;
+
+    }
+
     @Override
     public void saveWebsite(Websites websites)
     {
         Session session =sessionFactory.getCurrentSession();
 
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        User user = userService.findByUserName(name);
+
+        user.setWebsites(websites);
+
         session.saveOrUpdate(websites);
+        session.saveOrUpdate(user);
 
     }
     @Override
@@ -56,8 +94,13 @@ public class WebsiteDAOImpl implements WebsiteDAO
     @Override
     public void deleteWebsite(int theId) {
         Session session=sessionFactory.getCurrentSession();
-        Websites player=session.get(Websites.class,theId);
-        session.delete(player);
+        Websites website=session.get(Websites.class,theId);
+        User user = website.getUser();
+
+        user.setWebsites(null);
+        session.saveOrUpdate(user);
+        session.delete(website);
+
     }
     @Override
     public List<Websites> findWebsite(String nameOfAuthor) {

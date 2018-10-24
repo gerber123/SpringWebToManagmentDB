@@ -25,6 +25,7 @@
         <input:hidden path="id"/>
         <input:hidden path="password"/>
         <input:hidden path="voteEnable" />
+        <input:hidden path="userName"/>
 
 
         <c:if test="${registrationError != null}">
@@ -33,9 +34,6 @@
             </div>
         </c:if>
 
-        <p>UserName
-            <form:errors path="userName" cssClass="error" /></p>
-        <form:input path="userName" placeholder="username (*)" class="form-control" />
 
 
         <p>FirstName
@@ -52,6 +50,9 @@
 
           <p>Actual Role:</p>
               <form:select path="roles" items="${rolesOption}" multiple="false" cssClass="styled-select"/>
+
+          <%--<p>Website:</p>--%>
+        <%--<form:input path="websites" placeholder="website" value="${User.websites.id}" class="form-control" />--%>
             <%--<p>Date</p>--%>
                 <%--<form:input path="last_vote_date" item="${dateOfLastVote}"/>--%>
         <%--&lt;%&ndash;<p>Actual Role: ${User.roles}&ndash;%&gt;--%>

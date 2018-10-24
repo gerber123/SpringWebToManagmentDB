@@ -2,16 +2,20 @@ package com.gerber.springdemo.controller;
 
 import com.gerber.springdemo.entity.Role;
 import com.gerber.springdemo.entity.User;
+import com.gerber.springdemo.entity.Websites;
 import com.gerber.springdemo.service.WebsiteService;
 import com.gerber.springdemo.service.UserService;
 import com.gerber.springdemo.user.CrmUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import javax.jws.WebService;
 import javax.validation.Valid;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -24,6 +28,8 @@ public class UserController
 {
     @Autowired
     UserService userService;
+    @Autowired
+    WebsiteService websiteService;
 
 
     private Map<String, String> rolesOption;
@@ -56,6 +62,7 @@ public class UserController
         model.addAttribute("User",user);
 
 
+
         return "user-edit";
     }
 
@@ -69,6 +76,9 @@ public class UserController
         }
         else
         {
+            User userFindByName = userService.findByUserName(user.getUserName());
+            Websites web = userFindByName.getWebsites();
+            user.setWebsites(web);
             userService.saveUser(user);
             return "redirect:/user/list";
         }
@@ -95,4 +105,20 @@ public class UserController
 
         return "redirect:/user/list";
     }
+    @GetMapping("/user-detail")
+    public String getUserProfile(Model model)
+    {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        User user = userService.findByUserName(name);
+        int placeOfRanking = websiteService.getPlaceOfRanking(user.getUserName());
+        Websites website = user.getWebsites();
+        model.addAttribute("user",user);
+        model.addAttribute("website",website);
+        model.addAttribute("placeOfRanking",placeOfRanking);
+
+        return "fronter-profil";
+
+    }
+
 }

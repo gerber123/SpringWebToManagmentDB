@@ -85,6 +85,7 @@ public class UserServiceImpl implements UserService {
 //        System.out.println(user.getLast_vote_date().getTime()+"<<<<<<<<<<<<<<<<<<<<<<<<<");
             user.setRoles(Arrays.asList(roleDao.findRoleByName(firstElementOfRolesToString)));
             user.setLast_vote_date(new Date());
+            user.setWebsites(user.getWebsites());
 //        user.setLast_vote_date(user.getLast_vote_date());
         // save user in the database
         userDao.save(user);
